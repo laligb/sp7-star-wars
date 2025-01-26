@@ -1,8 +1,28 @@
-function Card() {
+// components/Card.js
+import { useSelector } from "react-redux";
+
+// eslint-disable-next-line react/prop-types
+function Card({ id }) {
+  console.log("Card received id:", id);
+
+  const starship = useSelector((state) =>
+    state.starships.items.find((starship) => starship.name === id)
+  );
+
+  console.log("Starship from Redux store:", starship);
+  if (!starship) {
+    return <div>Loading starship data...</div>;
+  }
+
   return (
-    <div>
-      <h1>TITLE</h1>
-      <p>Description</p>
+    <div
+      className="border p-3 opacity-50 "
+      style={{
+        width: "600px",
+      }}
+    >
+      <h5 className="card-title">{starship.name}</h5>
+      <p className="card-text">Model: {starship.model}</p>
     </div>
   );
 }

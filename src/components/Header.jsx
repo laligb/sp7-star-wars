@@ -15,8 +15,13 @@ function Header() {
           </div>
           <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
             <form className="d-flex">
-              <button className="btn btn-outline-success" type="submit">
+              <button className="btn text-light" type="submit">
                 Log in
+              </button>
+            </form>
+            <form className="d-flex">
+              <button className="btn text-light" type="submit">
+                Sign up
               </button>
             </form>
           </div>
