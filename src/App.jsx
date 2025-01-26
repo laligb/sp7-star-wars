@@ -1,13 +1,15 @@
 import "./App.css";
-// import Card from "./components/Card";
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/Header";
-import Cards from "./components/Cards";
+import AppRoutes from "./routes/Routes";
 
 function App() {
   return (
     <div className="bg-black">
-      <Header />
-      <Cards />
+      <Router>
+        <Header />
+        <AppRoutes />
+      </Router>
     </div>
   );
 }

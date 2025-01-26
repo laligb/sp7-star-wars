@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getStarships } from "../redux/slices/starshipsSlice";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 function Cards() {
   const dispatch = useDispatch();
@@ -28,9 +29,13 @@ function Cards() {
     <div className="d-flex justify-content-center ">
       <div className="text-light ">
         {items.map((starship) => (
-          <div key={starship.name}>
+          <Link
+            to={`/starship/${starship.name}`}
+            key={starship.name}
+            className="text-white text-decoration-none"
+          >
             <Card id={starship.name} />
-          </div>
+          </Link>
         ))}
       </div>
     </div>
