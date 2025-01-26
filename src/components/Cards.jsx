@@ -26,10 +26,10 @@ function Cards() {
 
   return (
     <div className="d-flex justify-content-center ">
-      <div className="bg-dark text-light ">
+      <div className="text-light ">
         {items.map((starship) => (
           <div key={starship.name}>
-            <Card id={starship.name} />{" "}
+            <Card id={starship.name} />
           </div>
         ))}
       </div>

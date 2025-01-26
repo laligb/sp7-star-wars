@@ -16,9 +16,9 @@ function Card({ id }) {
 
   return (
     <div
-      className="border p-3 opacity-50 "
+      className="p-3 bg-dark my-3 opacity-50"
       style={{
-        width: "600px",
+        width: "700px",
       }}
     >
       <h5 className="card-title">{starship.name}</h5>
