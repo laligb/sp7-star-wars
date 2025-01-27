@@ -3,7 +3,10 @@ import axiosInstance from "./axiosInstance";
 export const fetchStarships = () => {
   return axiosInstance
     .get("starships/")
-    .then((response) => response.data.results)
+    .then((response) => ({
+      results: response.data.results,
+      next: response.data.next,
+    }))
     .catch((error) => {
       throw error;
     });

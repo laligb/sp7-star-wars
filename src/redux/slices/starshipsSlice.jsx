@@ -3,10 +3,13 @@ import { fetchStarships } from "../../api/starships";
 
 export const getStarships = createAsyncThunk(
   "starships/fetchStarships",
-  async () => {
-    const data = await fetchStarships();
+  async (nextUrl = "https://swapi.dev/api/starships/") => {
+    const data = await fetchStarships(nextUrl);
     console.log(data);
-    return data;
+    return {
+      items: data.results,
+      next: data.next,
+    };
   }
 );
 
@@ -14,6 +17,7 @@ const starshipSlice = createSlice({
   name: "starships",
   initialState: {
     items: [],
+    next: null,
     loading: false,
     error: null,
   },
@@ -24,7 +28,9 @@ const starshipSlice = createSlice({
         state.loading = true;
       })
       .addCase(getStarships.fulfilled, (state, action) => {
-        state.items = action.payload;
+        console.log("Next URL:", action.payload.next);
+        state.items = [...state.items, ...action.payload.items];
+        state.next = action.payload.next;
         state.loading = false;
       })
       .addCase(getStarships.rejected, (state, action) => {

@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 
 function Cards() {
   const dispatch = useDispatch();
-  const { items, loading, error } = useSelector((state) => state.starships);
+  const { items, next, loading, error } = useSelector(
+    (state) => state.starships
+  );
 
   useEffect(() => {
     dispatch(getStarships());
@@ -37,6 +39,14 @@ function Cards() {
             <Card id={starship.name} />
           </Link>
         ))}
+        {next && (
+          <button
+            onClick={() => dispatch(getStarships(next))}
+            className="btn btn-primary mt-3"
+          >
+            View More
+          </button>
+        )}
       </div>
     </div>
   );
