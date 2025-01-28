@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
     <>
@@ -36,7 +38,9 @@ function Header() {
                 aria-current="page"
                 href="#"
               >
-                HOME
+                <Link to={"/"} className="text-light">
+                  HOME
+                </Link>
               </a>
             </li>
             <li className="nav-item">
