@@ -4,7 +4,10 @@ export const fetchStarships = () => {
   return axiosInstance
     .get("https://swapi.dev/api/starships/")
     .then((response) => ({
-      results: response.data.results,
+      results: response.data.results.map((starship) => ({
+        ...starship,
+        image: `https://starwars-visualguide.com/assets/img/starships/${starship.url.split("/")[5]}.jpg`,
+      })),
       next: response.data.next,
     }))
     .catch((error) => {
