@@ -13,19 +13,47 @@ function StarshipDetails() {
   if (!starship) {
     return <div>Loading starship details...</div>;
   }
+
   return (
-    <div className="p-3 text-white text-center row">
-      <h1>{starship.name.toUpperCase()}</h1>
-      <div className="col-6">
-        <img src={starship.image} alt={starship.name} />
+    <div className="p-3 text-center text-white row">
+      <h1 className="text-center p-4">{starship.name.toUpperCase()}</h1>
+
+      <div
+        className="col-lg-6 col-md-10 col-sm-12 py-2"
+        style={{ fontSize: "1.3rem" }}
+      >
+        <p>
+          <strong>Model: </strong>
+          {starship.model}
+        </p>
+        <p>
+          <strong>Manufacturer: </strong>
+          {starship.manufacturer}
+        </p>
+        <p>
+          <strong>Cost: </strong>
+          {starship.cost_in_credits}
+        </p>
+        <p>
+          <strong>Length: </strong>
+          {starship.length}
+        </p>
+        <p>
+          <strong>Crew:</strong> {starship.crew}
+        </p>
+        <p>
+          <strong>Passengers: </strong>
+          {starship.passengers}
+        </p>
       </div>
-      <div className="col-6">
-        <p>Model: {starship.model}</p>
-        <p>Manufacturer: {starship.manufacturer}</p>
-        <p>Cost: {starship.cost_in_credits}</p>
-        <p>Length: {starship.length}</p>
-        <p>Crew: {starship.crew}</p>
-        <p>Passengers: {starship.passengers}</p>
+
+      <div className="col-lg-6 col-md-10 col-sm-12 py-2">
+        <img
+          src={starship.image}
+          // alt={starship.name}
+          className="img-fluid"
+          style={{ maxWidth: "100%", height: "auto" }}
+        />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ function Header() {
   return (
     <>
       <nav className="navbar navbar-black bg-black">
-        <div className="container-fluid d-flex justify-content-between">
+        <div className="container-fluid d-flex justify-content-between ">
           <div style={{ flex: 1 }}></div>
           <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
             <div style={{ width: "200px", height: "200px" }}>

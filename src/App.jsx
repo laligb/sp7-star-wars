@@ -5,7 +5,7 @@ import AppRoutes from "./routes/Routes";
 
 function App() {
   return (
-    <div className="bg-black">
+    <div className="background">
       <Router>
         <Header />
         <AppRoutes />

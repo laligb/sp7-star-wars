@@ -8,3 +8,8 @@ html,
 body {
   background-color: black;
 }
+
+.background {
+  background: url("/starwars.png") no-repeat center center fixed;
+  background-size: cover;
+}
