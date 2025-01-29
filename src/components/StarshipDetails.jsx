@@ -15,9 +15,7 @@ function StarshipDetails() {
   }
 
   return (
-    <div className="p-3 text-center text-white row">
-      <h1 className="text-center p-4">{starship.name.toUpperCase()}</h1>
-
+    <>
       <div
         className="col-lg-6 col-md-10 col-sm-12 py-2"
         style={{ fontSize: "1.3rem" }}
@@ -55,7 +53,7 @@ function StarshipDetails() {
           style={{ maxWidth: "100%", height: "auto" }}
         />
       </div>
-    </div>
+    </>
   );
 }
 

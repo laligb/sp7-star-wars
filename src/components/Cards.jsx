@@ -29,7 +29,7 @@ function Cards() {
 
   return (
     <div className="d-flex justify-content-center ">
-      <div className="text-light ">
+      <div className="text-light">
         {items.map((starship) => (
           <Link
             to={`/starship/${starship.name}`}
@@ -42,7 +42,7 @@ function Cards() {
         {next && (
           <button
             onClick={() => dispatch(getStarships(next))}
-            className="btn btn-primary mt-3"
+            className="btn btn-success mt-3"
           >
             View More
           </button>

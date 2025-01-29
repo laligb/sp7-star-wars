@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 function Header() {
   return (
@@ -29,28 +29,7 @@ function Header() {
           </div>
         </div>
       </nav>
-      <nav className="navbar navbar-expand-lg navbar-black bg-black border-bottom border-top">
-        <div className="container-fluid justify-content-center">
-          <ul className="navbar-nav ">
-            <li className="nav-item">
-              <a
-                className="nav-link active text-light"
-                aria-current="page"
-                href="#"
-              >
-                <Link to={"/"} className="text-light">
-                  HOME
-                </Link>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-light" href="#">
-                STARSHIPS
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <Navbar />
     </>
   );
 }
