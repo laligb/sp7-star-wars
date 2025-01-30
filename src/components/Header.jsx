@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function Header() {
@@ -18,17 +19,18 @@ function Header() {
           <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
             <form className="d-flex">
               <button className="btn text-light" type="submit">
-                Log in
+                <Link to={"/login"}>Log in</Link>
               </button>
             </form>
             <form className="d-flex">
               <button className="btn text-light" type="submit">
-                Sign up
+                <Link to={"/signup"}>Sign up</Link>
               </button>
             </form>
           </div>
         </div>
       </nav>
+
       <Navbar />
     </>
   );
