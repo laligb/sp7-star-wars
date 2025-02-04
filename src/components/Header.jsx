@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { signOut } from "firebase/auth";
+import { logout } from "../redux/slices/authSlice";
+import { auth } from "../../config/firebase";
 
 function Header() {
+  const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+
+  const handleLogout = async () => {
+    await signOut(auth);
+    dispatch(logout());
+  };
   return (
     <>
       <nav className="navbar navbar-black bg-black">
@@ -17,16 +28,23 @@ function Header() {
             </div>
           </div>
           <div style={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
-            <form className="d-flex">
-              <button className="btn text-light" type="submit">
-                <Link to={"/login"}>Log in</Link>
-              </button>
-            </form>
-            <form className="d-flex">
-              <button className="btn text-light" type="submit">
-                <Link to={"/signup"}>Sign up</Link>
-              </button>
-            </form>
+            {user ? (
+              <>
+                <span className="text-white me-3">Welcome, {user.email}</span>
+                <button className="btn text-light" onClick={handleLogout}>
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <button className="btn text-light">
+                  <Link to="/login">Log in</Link>
+                </button>
+                <button className="btn text-light">
+                  <Link to="/signup">Sign up</Link>
+                </button>
+              </>
+            )}
           </div>
         </div>
       </nav>

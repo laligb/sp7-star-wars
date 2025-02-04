@@ -1,7 +1,54 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../config/firebase";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../redux/slices/authSlice";
+
 function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      console.log("User:", user);
+
+      dispatch(loginSuccess(user));
+      alert("Login successfull! ");
+      navigate("/");
+    } catch {
+      console.error(
+        "Firebase Authentication Error:",
+        error.code,
+        error.message
+      );
+      if (error.code === "auth/user-not-found") {
+        setError("No user found with this email.");
+      } else if (error.code === "auth/wrong-password") {
+        setError("Incorrect password.");
+      } else {
+        setError(error.message);
+      }
+    }
+  };
   return (
     <div className="d-flex justify-content-center">
-      <form className="p-5" style={{ maxWidth: "500px" }}>
+      <form
+        className="p-5"
+        style={{ maxWidth: "500px" }}
+        onSubmit={handleLogin}
+      >
         <div className="mb-3">
           <label
             htmlFor="exampleInputEmail1"
@@ -14,6 +61,9 @@ function LoginPage() {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <div id="emailHelp" className="form-text text-white">
             We will never share your email with anyone else.
@@ -30,8 +80,12 @@ function LoginPage() {
             type="password"
             className="form-control"
             id="exampleInputPassword1"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </div>
+        {error && <p className="text-danger">{error}</p>}
         <div className="mb-3 form-check">
           <input
             type="checkbox"

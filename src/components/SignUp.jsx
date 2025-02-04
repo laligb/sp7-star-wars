@@ -1,16 +1,29 @@
 import { useState } from "react";
 import { signUp } from "../firebase/auth";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginSuccess } from "../redux/slices/authSlice";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      await signUp(email, password);
+      const userCredential = await signUp(email, password);
+      const user = userCredential.user;
+
+      console.log("User from Redux:", user);
+
+      dispatch(loginSuccess(user));
+
       alert("User signed up successfully!");
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
