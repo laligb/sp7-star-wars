@@ -3,6 +3,8 @@ import { signUp } from "../firebase/auth";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginSuccess } from "../redux/slices/authSlice";
+import { auth } from "../../config/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -15,7 +17,13 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const userCredential = await signUp(email, password);
+      await signUp(email, password);
+
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
 
       console.log("User from Redux:", user);
