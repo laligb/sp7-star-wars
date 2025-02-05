@@ -26,8 +26,6 @@ const SignUp = () => {
       );
       const user = userCredential.user;
 
-      console.log("User from Redux:", user);
-
       dispatch(loginSuccess(user));
 
       alert("User signed up successfully!");

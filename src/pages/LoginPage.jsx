@@ -22,7 +22,6 @@ function LoginPage() {
         password
       );
       const user = userCredential.user;
-      console.log("User:", user);
 
       dispatch(loginSuccess(user));
       alert("Login successfull! ");
