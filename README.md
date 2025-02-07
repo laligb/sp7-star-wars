@@ -44,3 +44,7 @@ The project fetches Star Wars ship data from the following sources:
 - **Firebase** – For user authentication and managing protected routes
 - **SWAPI** – Provides Star Wars ships data
 - **Star Wars Visual Guide** – A visual guide for Star Wars images
+
+## Live Project
+
+You can view the live project here: [Star Wars Ships Explorer](https://sp7-star-wars.vercel.app/)
