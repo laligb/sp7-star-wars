@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Separator from "../components/Separator";
 import StarshipDetails from "../components/StarshipDetails";
+import Pilots from "../components/Pilots";
+import Films from "../components/Films";
 
 function StarshipDetailPage() {
   const { id } = useParams();
@@ -19,7 +21,11 @@ function StarshipDetailPage() {
   return (
     <div className="p-3 text-center text-white row">
       <Separator name={starship.name.toUpperCase()} />
-      <StarshipDetails />
+      <StarshipDetails starship={starship} />
+      <Separator name="Pilots" />
+      <Pilots starship={starship} />
+      <Separator name="Films" />
+      <Films starship={starship} />
     </div>
   );
 }

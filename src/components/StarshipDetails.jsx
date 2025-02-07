@@ -1,19 +1,6 @@
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
-function StarshipDetails() {
-  const { id } = useParams();
-
-  const starship = useSelector((state) =>
-    state.starships.items.find(
-      (starship) => starship.name === decodeURIComponent(id)
-    )
-  );
-
-  if (!starship) {
-    return <div>Loading starship details...</div>;
-  }
-
+function StarshipDetails({ starship }) {
   return (
     <>
       <div
@@ -56,5 +43,18 @@ function StarshipDetails() {
     </>
   );
 }
+
+StarshipDetails.propTypes = {
+  starship: PropTypes.shape({
+    model: PropTypes.string.isRequired,
+    manufacturer: PropTypes.string.isRequired,
+    cost_in_credits: PropTypes.string.isRequired,
+    length: PropTypes.string.isRequired,
+    crew: PropTypes.string.isRequired,
+    passengers: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default StarshipDetails;
