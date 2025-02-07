@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
-import { logout } from "../redux/slices/authSlice";
-import { auth } from "../../config/firebase";
+import { logout } from "../../redux/slices/authSlice";
+import { auth } from "../../../config/firebase";
 
 function Header() {
   const user = useSelector((state) => state.auth.user);

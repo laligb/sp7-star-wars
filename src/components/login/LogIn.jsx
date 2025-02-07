@@ -1,9 +1,9 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../config/firebase";
+import { auth } from "../../../config/firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginSuccess } from "../redux/slices/authSlice";
+import { loginSuccess } from "../../redux/slices/authSlice";
 import Cookies from "js-cookie";
 
 function LogIn() {

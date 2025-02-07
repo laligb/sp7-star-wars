@@ -1,4 +1,4 @@
-import Cards from "../components/Cards";
+import Cards from "../components/cards/Cards";
 
 function StarshipsPage() {
   return (

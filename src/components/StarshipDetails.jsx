@@ -35,7 +35,6 @@ function StarshipDetails({ starship }) {
       <div className="col-lg-6 col-md-10 col-sm-12 py-2">
         <img
           src={starship.image}
-          // alt={starship.name}
           className="img-fluid"
           style={{ maxWidth: "100%", height: "auto" }}
         />

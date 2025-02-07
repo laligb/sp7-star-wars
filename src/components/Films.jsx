@@ -1,4 +1,4 @@
-import PilotCard from "./PilotCard";
+import PilotCard from "./cards/PilotCard";
 import PropTypes from "prop-types";
 
 function Films({ starship }) {

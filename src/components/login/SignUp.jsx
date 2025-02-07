@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { signUp } from "../firebase/auth";
+import { signUp } from "../../firebase/auth";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginSuccess } from "../redux/slices/authSlice";
-import { auth } from "../../config/firebase";
+import { loginSuccess } from "../../redux/slices/authSlice";
+import { auth } from "../../../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const SignUp = () => {

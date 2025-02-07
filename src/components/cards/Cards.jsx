@@ -1,7 +1,7 @@
 // components/Cards.js
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getStarships } from "../redux/slices/starshipsSlice";
+import { getStarships } from "../../redux/slices/starshipsSlice";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 

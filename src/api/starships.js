@@ -21,7 +21,7 @@ export const fetchStarships = () => {
             starship.films.map(async (filmUrl) => {
               const filmResponse = await axiosInstance.get(filmUrl);
               const filmId = filmUrl.split("/")[5];
-              console.log(filmResponse.data);
+
               return {
                 title: filmResponse.data.title,
                 release_date: filmResponse.data.release_date,
